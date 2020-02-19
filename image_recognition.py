@@ -42,7 +42,7 @@ def plot_value_array(i, predictions_array, true_label):
 # importing and loading the datasets
 fasion_mnist = ks.datasets.fashion_mnist
 (train_image,train_labels), (test_image,test_labels) = fasion_mnist.load_data()
-
+print(train_image[0])
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 # reducing pixel values between 0-1

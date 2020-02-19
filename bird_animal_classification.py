@@ -96,8 +96,8 @@ for i  in range(0,len(word_set)):
 
 
     train_set[i]= arr1
-train_set1 =  np.array(train_set)
-train_labels1 = np.array(train_labels)
+# train_set1 =  np.array(train_set)
+# train_labels1 = np.array(train_labels)
 
 for i  in range(0,10):
     x = iter(word_set[i+10])
@@ -108,28 +108,28 @@ for i  in range(0,10):
         arr1[0][j] = (ord(arr)/122)
 
     test_set[i]= arr1
-print(train_set)
+print(train_set[0])
 print(train_labels)
 print(test_set)
 
 # model structure
-models = ks.Sequential()
-models.add(ks.layers.Flatten(input_shape=(15,)))
-# models.add(ks.layers.Dense(50,activation="relu",input_shape=(15,)))
-# models.add(ks.layers.Dense(10,activation="sigmoid"))
-models.add(ks.layers.Dense(20,activation="relu"))
-models.add(ks.layers.Dense(2))
-models.summary()
-models.compile(optimizer="adam",
-loss=ks.losses.SparseCategoricalCrossentropy(from_logits=True),
-metrics=['accuracy']
-)
-
-
-models.fit(train_set,train_labels,epochs=50000)
-models.save("model17.h5")
+# models = ks.Sequential()
+# models.add(ks.layers.Flatten(input_shape=(15,)))
+# # models.add(ks.layers.Dense(50,activation="relu",input_shape=(15,)))
+# # models.add(ks.layers.Dense(10,activation="sigmoid"))
+# models.add(ks.layers.Dense(20,activation="relu"))
+# models.add(ks.layers.Dense(2))
+# models.summary()
+# models.compile(optimizer="adam",
+# loss=ks.losses.SparseCategoricalCrossentropy(from_logits=True),
+# metrics=['accuracy']
+# )
+#
+#
+# models.fit(train_set,train_labels,epochs=50000)
+# models.save("model17.h5")
 # for loading preloaded model
-# models = ks.models.load_model("model16.h5")
+models = ks.models.load_model("model16.h5")
 prediction = models.predict(test_set)
 
 for k in test_set[1]:
