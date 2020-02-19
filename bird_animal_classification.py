@@ -127,7 +127,7 @@ print(test_set)
 #
 #
 # models.fit(train_set,train_labels,epochs=50000)
-# models.save("model17.h5")
+models.save("model17.h5")
 # for loading preloaded model
 models = ks.models.load_model("model16.h5")
 prediction = models.predict(test_set)
